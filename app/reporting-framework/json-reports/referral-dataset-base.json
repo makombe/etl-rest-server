@@ -153,7 +153,7 @@
             },
             {
                 "filterType": "tableColumns",
-                "conditionExpression": "t9.uuid in (?)",
+                "conditionExpression": "t9.uuid in ?",
                 "parameterName": "locationUuids"        
             },
             {
@@ -163,12 +163,12 @@
             },
             {
                 "filterType": "tableColumns",
-                "conditionExpression": "t5.uuid in  (?)",
+                "conditionExpression": "t5.uuid in  ?",
                 "parameterName": "programUuids"
             },
             {
                 "filterType": "tableColumns",
-                "conditionExpression": "t10.uuid in  (?)",
+                "conditionExpression": "t10.uuid in  ?",
                 "parameterName": "stateUuids"
             }
         ]

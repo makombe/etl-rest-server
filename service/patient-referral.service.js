@@ -12,8 +12,36 @@ import {
     PatientReferralAggregateService
 } from './patient-referral-aggregate.service'
 export class PatientReferralService {
+
   
     getAggregateReport(reportParams) {
+        var locationUuids = [];
+        var stateUuids = [];
+        var providerUuids = [];
+        var programUuids= [];
+        // format locationUuids
+        if (reportParams.locationUuids) {
+            _.each(reportParams.locationUuids.split(','), function (loc) {
+                locationUuids.push(String(loc));
+            });
+        }
+        reportParams.locationUuids= locationUuids;
+        //format StateUuids
+        if (reportParams.stateUuids) {
+            _.each(reportParams.stateUuids.split(','), function (s) {
+                stateUuids.push(String(s));
+            });
+        }
+        reportParams.stateUuids= stateUuids;
+
+        if (reportParams.programUuids) {
+            _.each(reportParams.programUuids.split(','), function (s) {
+                programUuids.push(String(s));
+            });
+        }
+        reportParams.programUuids= programUuids;
+
+        console.log('reportParams===reportParams',reportParams);
         let self = this;
         return new Promise(function (resolve, reject) {
             reportParams.groupBy = 'groupByLocation,groupByProgram,groupByState';
